@@ -23,7 +23,7 @@ public class EmailSender {
     private static final String defaultMimetype = "text/plain";
     
     public static void main(String[] args) throws Exception {
-    	EmailSender.send(new String[]{"834021372@qq.com"}, "邮件测试xx", "<b>优优图书商城</b>", null , "text/html");
+    	EmailSender.send(new String[]{"test@qq.com"}, "邮件测试xx", "<b>优优图书商城</b>", null , "text/html");
     }
     /**
      * 发送邮件
@@ -59,13 +59,13 @@ public class EmailSender {
         props.put("mail.smtp.auth", "true");//需要校验
         Session session = Session.getDefaultInstance(props, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("liaoyu753@163.com","liao13820106356");//登录用户名/密码
+                return new PasswordAuthentication("test@163.com","test");	//登录用户名/密码
             }
         });
         session.setDebug(true);
         try {
             MimeMessage mimeMessage = new MimeMessage(session);
-            mimeMessage.setFrom(new InternetAddress("liaoyu753@163.com"));//发件人邮件
+            mimeMessage.setFrom(new InternetAddress("test@163.com"));	//发件人邮件
 
             InternetAddress[] toAddress = new InternetAddress[receivers.length];
             for (int i=0; i<receivers.length; i++) {
